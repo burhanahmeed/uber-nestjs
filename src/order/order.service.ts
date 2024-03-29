@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
-import { Order, OrderItem } from '@prisma/client';
+import { Order } from '@prisma/client';
 
 interface OrderData { longitude: number, latitude: number, subtotal: number, deliveryFee: number, address: string, queue: string, items: { itemId: number, itemName: string, itemPrice: number, itemImage: string }[]}
 

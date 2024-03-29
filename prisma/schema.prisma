@@ -20,6 +20,7 @@ model User {
   password String
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
+  @@map("users")
 }
 
 model Item {
@@ -31,6 +32,7 @@ model Item {
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   OrderItem OrderItem[]
+  @@map("items")
 }
 
 model Order {
@@ -44,6 +46,7 @@ model Order {
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   OrderItem OrderItem[]
+  @@map("orders")
 }
 
 model OrderItem {
@@ -55,4 +58,5 @@ model OrderItem {
   itemImage String
   Order Order @relation(fields: [orderId], references: [id])
   Item Item @relation(fields: [itemId], references: [id])
+  @@map("order_item")
 }
