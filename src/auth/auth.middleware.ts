@@ -7,15 +7,15 @@ export class AuthMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     // Your authentication logic goes here.
     // For example, you can check if the request has a valid JWT token:
-    const token = req.headers.authorization;
+    const auth = req.headers.authorization;
 
-    if (!token) {
+    if (!auth) {
       res.status(401).json({ message: 'Missing authentication token' });
       return;
     }
 
     try {
-        const decodedToken = jwt.verify(token, 'your_secret_key');
+        const decodedToken = jwt.verify(auth[1], 'secretKey');
         // TODO: Set the user in the request object using the decoded token
     } catch (error) {
         res.status(401).json({ message: 'Invalid authentication token' });
