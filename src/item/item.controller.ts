@@ -8,11 +8,11 @@ export class ItemController {
 
     @Get()
     async getAllItems(@Query('page') page: number, @Query('size') size: number): Promise<Item[]> {
-        return this.itemService.getItems(page, size);
+        return this.itemService.getItems(page || 1, size || 30);
     }
 
     @Get(':id')
-    async getItemById(@Param('id') id: number): Promise<Item> {
-        return this.itemService.getItemById(id);
+    async getItemById(@Param('id') id: string): Promise<Item|{}> {
+        return this.itemService.getItemById(Number(id));
     }
 }

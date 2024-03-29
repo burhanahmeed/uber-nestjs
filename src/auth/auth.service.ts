@@ -6,11 +6,11 @@ import { sign } from 'jsonwebtoken';
 export class AuthService {
     constructor(private prisma: PrismaService) {}
 
-    async login(username: string, password: string): Promise<boolean> {
+    async login(email: string, password: string): Promise<boolean> {
         // Your login logic using Prisma goes here
         // Example: Check if the username and password match a user in the database
         const user = await this.prisma.user.findUnique({
-            where: { username },
+            where: { email },
         });
 
         if (!user || user.password !== password) {
@@ -18,7 +18,7 @@ export class AuthService {
         }
 
         // Generate JWT token
-        const token = sign({ username }, 'secretKey');
+        const token = sign({ email }, 'secretKey');
 
         return token;
     }

@@ -18,6 +18,7 @@ export class ItemService {
         const item = await this.prisma.item.findUnique({
             where: { id },
         });
-        return item;
+
+        return item || {};
     }
 }
