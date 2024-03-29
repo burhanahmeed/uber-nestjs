@@ -12,4 +12,11 @@ export class AuthController {
         const token = await this.authService.login(loginDto.username, loginDto.password);
         return { token };
     }
+
+    @Post('signup')
+    async signup(@Body() signupDto: LoginDto) {
+        // Call the authentication service to handle the signup logic
+        const user = await this.authService.signup(signupDto.username, signupDto.password);
+        return { user };
+    }
 }

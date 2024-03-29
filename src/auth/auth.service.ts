@@ -22,4 +22,19 @@ export class AuthService {
 
         return token;
     }
+
+    async signup(email: string, password: string): Promise<boolean> {
+        // Your signup logic using Prisma goes here
+        // Example: Create a new user with the provided email and password
+        const newUser = await this.prisma.user.create({
+            data: {
+                email,
+                password,
+            },
+        });
+        if (!newUser) {
+            return false;
+        }
+        return true;
+    }
 }
