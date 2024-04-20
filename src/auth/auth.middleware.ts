@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -15,7 +15,7 @@ export class AuthMiddleware implements NestMiddleware {
     }
 
     try {
-        const decodedToken = jwt.verify(auth[1], 'secretKey');
+        jwt.verify(auth.split(' ')[1], 'secretKey');
         // TODO: Set the user in the request object using the decoded token
     } catch (error) {
         res.status(401).json({ message: 'Invalid authentication token' });

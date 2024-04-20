@@ -9,7 +9,7 @@ class LoginTest(HttpUser):
             "password": "password123"
         }
         response = self.client.post("/auth/login", json=payload)
-        if response.status_code == 200:
+        if response.status_code == 201:
             print("Login successful")
         else:
             print("Login failed")
