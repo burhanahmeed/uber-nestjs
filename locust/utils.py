@@ -4,7 +4,7 @@ def login(client):
         "password": "password123"
     }
     response = client.post('/auth/login', json=login_payload)
-    if response.status_code == 200:
+    if response.status_code == 201:
          return response.json().get('token')
     else:
         print("Login failed")
