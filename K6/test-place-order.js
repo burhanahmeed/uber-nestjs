@@ -4,6 +4,18 @@ import http from 'k6/http';
 import { check } from 'k6';
 import { getLoginToken } from './utils.js';
 
+export const options = {
+    // Key configurations for avg load test in this section
+    vus: 100,
+    iterations: 20,
+    duration: '300s'
+    // stages: [
+    //   { duration: '5m', target: 100 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
+    //   { duration: '30m', target: 100 }, // stay at 100 users for 30 minutes
+    //   { duration: '5m', target: 0 }, // ramp-down to 0 users
+    // ],
+  };
+
 export function setup() {
     const token = getLoginToken();
     
