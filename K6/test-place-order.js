@@ -6,9 +6,9 @@ import { getLoginToken } from './utils.js';
 
 export const options = {
     // Key configurations for avg load test in this section
-    vus: 100,
-    iterations: 20,
-    duration: '300s'
+    vus: 600,
+    // iterations: 20,
+    duration: '30s'
     // stages: [
     //   { duration: '5m', target: 100 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
     //   { duration: '30m', target: 100 }, // stay at 100 users for 30 minutes
