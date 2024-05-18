@@ -6,6 +6,7 @@ import { sleep, check } from 'k6';
 export const options = {
     vus: 6,
     // iterations: 20,
+    // duration: '30s',
     // thresholds: {
     //     http_req_failed: ['rate<0.01'], // http errors should be less than 1%
     //     // 90% of requests must finish within 400ms, 95% within 800, and 99.9% within 2s.
