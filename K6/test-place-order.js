@@ -1,4 +1,5 @@
 // BASE_URL=http://localhost:3000 k6 run test-place-order.js
+// K6_WEB_DASHBOARD=true BASE_URL=http://localhost:3000 k6 run test-place-order.js
 
 import http from 'k6/http';
 import { check } from 'k6';
@@ -6,7 +7,7 @@ import { getLoginToken } from './utils.js';
 
 export const options = {
     // Key configurations for avg load test in this section
-    vus: 600,
+    vus: 1,
     // iterations: 20,
     duration: '30s'
     // stages: [

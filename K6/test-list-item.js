@@ -1,4 +1,5 @@
 // BASE_URL=http://localhost:3000 k6 run test-list-item.js
+// BASE_URL=http://localhost:3000 K6_WEB_DASHBOARD=true k6 run test-list-item.js
 
 import http from 'k6/http';
 import { check } from 'k6';
@@ -9,9 +10,9 @@ export const options = {
     // vus: 500,
     // duration: '30s'
     stages: [
-      { duration: '10s', target: 600 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
-      { duration: '30s', target: 500 }, // stay at 100 users for 30 minutes
-      { duration: '10s', target: 0 }, // ramp-down to 0 users
+      { duration: '5s', target: 5 }, // traffic ramp-up from 1 to 100 users over 5 minutes.
+      { duration: '5s', target: 8 }, // stay at 100 users for 30 minutes
+      { duration: '2s', target: 0 }, // ramp-down to 0 users
     ],
   };
 
