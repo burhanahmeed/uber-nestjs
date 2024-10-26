@@ -16,6 +16,11 @@ Run venv
 source venv/bin/activate
 ```
 
+Deactivate 
+```
+deactivate
+```
+
 ## Installation
 
 ```
