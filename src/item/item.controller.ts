@@ -7,8 +7,8 @@ export class ItemController {
     constructor(private readonly itemService: ItemService) {}
 
     @Get()
-    async getAllItems(@Query('page') page: number, @Query('size') size: number): Promise<Item[]> {
-        return this.itemService.getItems(page || 1, size || 30);
+    async getAllItems(@Query('page') page: number, @Query('size') size: number, @Query('id') id: number): Promise<Item[]> {
+        return this.itemService.getItems(page || 1, size || 30, id);
     }
 
     @Get(':id')

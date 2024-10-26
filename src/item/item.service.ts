@@ -5,9 +5,10 @@ import { PrismaService } from '../prisma.service';
 export class ItemService {
     constructor(private prisma: PrismaService) {}
 
-    async getItems(page: number, pageSize: number) {
+    async getItems(page: number, pageSize: number, id?: number) {
         const skip = (page - 1) * pageSize;
         const items = await this.prisma.item.findMany({
+            where: id ? { id } : undefined,
             skip,
             take: pageSize,
         });
